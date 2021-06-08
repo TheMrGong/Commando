@@ -35,6 +35,12 @@ function paginate(items, page = 1, pageLength = 10) {
 	};
 }
 
+function resolveString(data) {
+	if(typeof data === 'string') return data;
+	if(Array.isArray(data)) return data.join('\n');
+	return String(data);
+}
+
 const permissions = {
 	ADMINISTRATOR: 'Administrator',
 	VIEW_AUDIT_LOG: 'View audit log',
@@ -74,5 +80,6 @@ module.exports = {
 	disambiguation,
 	paginate,
 	permissions,
-	isConstructor
+	isConstructor,
+	resolveString
 };
